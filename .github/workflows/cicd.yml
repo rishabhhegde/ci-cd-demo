@@ -53,8 +53,8 @@ jobs:
 
         - name: upload artifact
           uses: actions/upload-pages-artifact@v2
-	  with:
-            path: "."
+	      with:
+	          path: "."
 
         - name: deploy to github pages
           id: deployment
