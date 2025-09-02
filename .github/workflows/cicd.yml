@@ -7,7 +7,7 @@ on:
     branch: ['main']
 
 permissions:
-  content: read
+  contents: read
   pages: write
   id-token: write
 
@@ -37,7 +37,7 @@ jobs:
     needs: test
     if: github.event_name == 'push'
     permissions:
-      content: read
+      contents: read
       pages: write
       id-token: write
     runs-on: ubuntu-latest
