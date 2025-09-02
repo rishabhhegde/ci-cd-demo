@@ -23,9 +23,9 @@ jobs:
 
 
     - name: Install pytest
-      uses: pip install pytest
+      run: pip install pytest
 
 
     - name: Run tests
-      uses: pytest
+      run: pytest
 
