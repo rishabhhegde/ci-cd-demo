@@ -33,31 +33,31 @@ jobs:
           PYTHONPATH=. pytest
 
 
-    deploy:
-      needs: test
-      if: github.event_name == 'push'
-      permissions:
-        content: read
-        pages: write
-        id-token: write
-      runs-on: ubuntu-latest
-      environment:
-        name: github pages
-        url: ${{ steps.deployment.outputs.page_url }}
-      steps:
-        - name: checkout code
-          uses: actions/checkout@v3
+  deploy:
+    needs: test
+    if: github.event_name == 'push'
+    permissions:
+      content: read
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
 
-        - name: setup pages
-          uses: actions/configure-pages@v3
+      - name: setup pages
+        uses: actions/configure-pages@v3
 
-        - name: upload artifact
-          uses: actions/upload-pages-artifact@v2
-	  with:
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
             path: "."
 
-        - name: deploy to github pages
-          id: deployment
-          uses: actions/deploy-pages@v4
+      - name: deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
 
