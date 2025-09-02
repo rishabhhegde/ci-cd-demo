@@ -1,4 +1,4 @@
-from app import app
+from ci-cd-demo.app import app
 
 def test_home():
     with app.test_client() as c:
